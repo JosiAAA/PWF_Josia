@@ -34,6 +34,9 @@
         <td>{{ $p->destinasi }}</td>
         <td>{{ $p->tanggal}}</td>
         <td><a href="#">{{ $p->harga }}</a></td>
+        <!-- Add a data-id attribute to each "BELI" button to store the unique identifier -->
+<td><button class="beli-button" data-id="{{ $p->id }}">BUY</button></td>
+
        
     </tr>
     @endforeach
@@ -42,6 +45,35 @@
 </div>
 </div>
 </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const beliButtons = document.querySelectorAll(".beli-button");
+    
+      beliButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+          const row = this.closest("tr"); // Get the closest table row
+          const maskapai = row.querySelector("td:nth-child(2)").textContent;
+          const destinasi = row.querySelector("td:nth-child(3)").textContent;
+          const tanggal = row.querySelector("td:nth-child(4)").textContent;
+          const harga = row.querySelector("td:nth-child(5)").textContent;
+    
+          // Create a JavaScript object to store the data
+          const tiketData = {
+            maskapai,
+            destinasi,
+            tanggal,
+            harga,
+          };
+    
+          // Store the data in a cookie or use other methods to pass it to the next page
+          // Example using localStorage:
+          localStorage.setItem("tiketData", JSON.stringify(tiketData));
+          window.location.href = "/pesan";
+        });
+      });
+    });
+    </script>
+    
 <script src="css2/js/jquery-3.3.1.min.js"></script>
 <script src="css2/js/popper.min.js"></script>
 <script src="css2/js/bootstrap.min.js"></script>

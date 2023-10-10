@@ -12,29 +12,34 @@
 
 <div class="content">
 <div class="container">
-<h2 class="mb-5">Jadwal Penerbangan</h2>
+<h2 class="mb-5">Daftar Penumpang</h2>
 <div class="table-responsive">
 <table class="table table-striped custom-table">
 <thead>
 <tr>
-<th scope="col">No.Penerbangan</th>
+<th scope="col">No</th>
+<th scope="col">Nama</th>
+<th scope="col">Umur</th>
+<th scope="col">No.Telp</th>
 <th scope="col">Maskapai</th>
 <th scope="col">Destinasi</th>
 <th scope="col">Tanggal</th>
-<th scope="col">Waktu</th>
-<th scope="col">Gate</th>
+<th scope="col">Harga</th>
 </tr>
 </thead>
 <tbody>
-    @foreach($jadwal as $p)
+    @foreach($posting as $p)
     <tr scope="row">
         
         <td>{{ $p->id }}</td>
-        <td><a href="#">{{ $p->maskapai }}</a></td>
+        <td><a >{{ $p->nama }}</a></td>
+        <td>{{ $p->umur }}</td>
+        <td>{{ $p->telp }}</td>
+        <td><a>{{ $p->maskapai }}</a></td>
         <td>{{ $p->destinasi }}</td>
         <td>{{ $p->tanggal}}</td>
-        <td>{{ $p->jam}}</td>
-        <td><a href="#">{{ $p->gate }}</a></td>
+        <td>{{ $p->harga}}</td>
+       
        
     </tr>
     @endforeach

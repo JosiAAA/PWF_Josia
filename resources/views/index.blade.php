@@ -1,0 +1,42 @@
+@extends('layouts.base')
+@section('content')
+    <table class="table">
+        <tr>
+            <th>no</th>
+            <th>nama</th>
+            <th>umur</th>
+            <th>telp</th>
+            <th>nama</th>
+            <th>umur</th>
+        </tr>
+        @foreach($posting as $p)
+        <tr>
+            <td>
+                {{$p->id}}
+            </td>
+            <td>
+                {{$p->nama}}
+            </td>
+            <td>
+                {{$p->umur}}
+            </td>
+            <td>
+                {{$p->telp}}
+            </td>
+            <td>
+                {{$p->maskapai}}
+            </td>
+            <td>
+                {{$p->destinasi}}
+            </td>
+            <td>
+                {{$p->tanggal}}
+            </td>
+            <td>
+                {{$p->harga}}
+            </td>
+           
+        </tr>
+        @endforeach
+    </table>
+    @endsection
